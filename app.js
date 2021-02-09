@@ -1,5 +1,6 @@
 const searchSongs = () => {
     const searchText = document.getElementById('search-field').value;
-    console.log(searchText);
+    const url = `https://api.lyrics.ovh/suggest/${searchText}`
+    console.log(url);
     
 }
