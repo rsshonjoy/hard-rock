@@ -8,6 +8,12 @@ const searchSongs = () => {
 }
 
 const displaySongs = songs => {
-    songs.forEach(song => console.log(song.title))
+    const songContainer = document.getElementById('song-container');
+
+    songs.forEach(song => {
+        const li = document.createElement('li');
+        li.innerText = song.title;
+        songContainer.appendChild(li);
+    })
     
 }
