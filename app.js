@@ -4,10 +4,10 @@ const searchSongs = () => {
     // load data
     fetch(url)
     .then(res => res.json())
-    .then(data => displaySongs(data))
+    .then(data => displaySongs(data.data))
 }
 
 const displaySongs = songs => {
-    console.log(songs);
+    songs.forEach(song => console.log(song.title))
     
 }
