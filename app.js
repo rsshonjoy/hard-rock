@@ -9,7 +9,7 @@ const searchSongs = () => {
 
 const displaySongs = songs => {
     const songContainer = document.getElementById('song-container');
-
+    songContainer.innerHTML = '';
     songs.forEach(song => {
         console.log(song);
         
@@ -33,6 +33,13 @@ const displaySongs = songs => {
 }
 
 const getLyric = (artist, title) => {
-    console.log(artist, title);
-    
+    const url = `https://api.lyrics.ovh/v1/${artist}/${title}`;
+    fetch(url)
+    .then(res => res.json())
+    .then(data => displayLyrics(data.lyrics))
+}
+
+const displayLyrics = lyrics => {
+    const lyricsDiv = document.getElementById('song-lyrics');
+    lyricsDiv.innerText = lyrics;
 }
