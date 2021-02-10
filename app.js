@@ -43,9 +43,13 @@ const displaySongs = songs => {
 
 const getLyric = async (artist, title) => {
     const url = `https://api.lyrics.ovh/v1/${artist}/${title}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    displayLyrics(data.lyrics)
+    try{
+        const res = await fetch(url);
+        const data = await res.json();
+        displayLyrics(data.lyrics)
+    }catch (error){
+        displayError('Sorry! I failed to load lyrics, Please try again later!')
+    }
 }
 
 const displayLyrics = lyrics => {
