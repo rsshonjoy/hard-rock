@@ -68,3 +68,11 @@ const toggleSpinner = () => {
     const spinner = document.getElementById('loading-spinner');
     spinner.classList.toggle('d-none');
 }
+
+
+document.getElementById("search-field").addEventListener("keypress", function (event) {
+    // event.preventDefault();
+    if (event.key == 'Enter') {
+        document.getElementById("search-button").click();
+    }
+});
